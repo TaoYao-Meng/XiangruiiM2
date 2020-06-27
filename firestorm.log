@@ -1,0 +1,80 @@
+DEBUG main org.hibernate.hql.internal.ast.ErrorCounter - throwQueryException() : no errors
+DEBUG main org.hibernate.hql.internal.ast.QueryTranslatorImpl - HQL: from main.com.ssh.shop.entity.Whlist as w where w.warehouse.id =:wno and w.goods.id=:id
+DEBUG main org.hibernate.hql.internal.ast.QueryTranslatorImpl - SQL: select whlist0_.ID as ID1_7_, whlist0_.goodid as goodid4_7_, whlist0_.Min as Min2_7_, whlist0_.NUM as NUM3_7_, whlist0_.wno as wno5_7_ from WHLIST whlist0_ where whlist0_.wno=? and whlist0_.goodid=?
+DEBUG main org.hibernate.hql.internal.ast.ErrorCounter - throwQueryException() : no errors
+DEBUG main org.hibernate.SQL - 
+    select
+        whlist0_.ID as ID1_7_,
+        whlist0_.goodid as goodid4_7_,
+        whlist0_.Min as Min2_7_,
+        whlist0_.NUM as NUM3_7_,
+        whlist0_.wno as wno5_7_ 
+    from
+        WHLIST whlist0_ 
+    where
+        whlist0_.wno=? 
+        and whlist0_.goodid=?
+DEBUG main org.hibernate.loader.Loader - Result set row: 0
+DEBUG main org.hibernate.loader.Loader - Result row: EntityKey[main.com.ssh.shop.entity.Whlist#1]
+DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Resolving associations for [main.com.ssh.shop.entity.Whlist#1]
+DEBUG main org.hibernate.SQL - 
+    select
+        goods0_.ID as ID1_0_0_,
+        goods0_.NAME as NAME2_0_0_,
+        goods0_.PIC as PIC3_0_0_,
+        goods0_.PRICE as PRICE4_0_0_,
+        goods0_.SAMARY as SAMARY5_0_0_,
+        goods0_.TYPE as TYPE6_0_0_ 
+    from
+        GOODS goods0_ 
+    where
+        goods0_.ID=?
+DEBUG main org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl - Starting ResultSet row #0
+DEBUG main org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Resolving associations for [main.com.ssh.shop.entity.Goods#42]
+DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Done materializing entity [main.com.ssh.shop.entity.Goods#42]
+DEBUG main org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader - Done entity load : main.com.ssh.shop.entity.Goods#42
+DEBUG main org.hibernate.SQL - 
+    select
+        warehouse0_.ID as ID1_6_0_,
+        warehouse0_.ADDRESS as ADDRESS2_6_0_,
+        warehouse0_.NAME as NAME3_6_0_ 
+    from
+        WAREHOUSE warehouse0_ 
+    where
+        warehouse0_.ID=?
+DEBUG main org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl - Starting ResultSet row #0
+DEBUG main org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Resolving associations for [main.com.ssh.shop.entity.Warehouse#3]
+DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Done materializing entity [main.com.ssh.shop.entity.Warehouse#3]
+DEBUG main org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader - Done entity load : main.com.ssh.shop.entity.Warehouse#3
+DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Done materializing entity [main.com.ssh.shop.entity.Whlist#1]
+DEBUG main org.springframework.orm.hibernate4.HibernateTransactionManager - Initiating transaction commit
+DEBUG main org.springframework.orm.hibernate4.HibernateTransactionManager - Committing Hibernate transaction on Session [SessionImpl(PersistenceContext[entityKeys=[EntityKey[main.com.ssh.shop.entity.Warehouse#3], EntityKey[main.com.ssh.shop.entity.Whlist#1], EntityKey[main.com.ssh.shop.entity.Goods#42]],collectionKeys=[]];ActionQueue[insertions=org.hibernate.engine.spi.ExecutableList@10876a6 updates=org.hibernate.engine.spi.ExecutableList@71870da7 deletions=org.hibernate.engine.spi.ExecutableList@6dd91637 orphanRemovals=org.hibernate.engine.spi.ExecutableList@45792847 collectionCreations=org.hibernate.engine.spi.ExecutableList@706cb08 collectionRemovals=org.hibernate.engine.spi.ExecutableList@4e25147a collectionUpdates=org.hibernate.engine.spi.ExecutableList@6b68cb27 collectionQueuedOps=org.hibernate.engine.spi.ExecutableList@675ffd1d unresolvedInsertDependencies=UnresolvedEntityInsertActions[]])]
+DEBUG main org.hibernate.engine.transaction.spi.AbstractTransactionImpl - committing
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Processing flush-time cascades
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Dirty checking collections
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 3 objects
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+DEBUG main org.hibernate.internal.util.EntityPrinter - Listing entities:
+DEBUG main org.hibernate.internal.util.EntityPrinter - main.com.ssh.shop.entity.Warehouse{address=双流, name=菜鸟驿站, id=3}
+DEBUG main org.hibernate.internal.util.EntityPrinter - main.com.ssh.shop.entity.Whlist{min=100, num=9999, goods=main.com.ssh.shop.entity.Goods#42, id=1, warehouse=main.com.ssh.shop.entity.Warehouse#3}
+DEBUG main org.hibernate.internal.util.EntityPrinter - main.com.ssh.shop.entity.Goods{price=3.0, name=雪碧, id=42, pic=pic\7f981831-94f3-484b-a8f2-708ca4b7e1ed.jpg, type=饮料, samary=好喝的雪碧}
+DEBUG main org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction - committed JDBC Connection
+DEBUG main org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction - re-enabling autocommit
+DEBUG main org.springframework.orm.hibernate4.HibernateTransactionManager - Closing Hibernate Session [SessionImpl(PersistenceContext[entityKeys=[EntityKey[main.com.ssh.shop.entity.Warehouse#3], EntityKey[main.com.ssh.shop.entity.Whlist#1], EntityKey[main.com.ssh.shop.entity.Goods#42]],collectionKeys=[]];ActionQueue[insertions=org.hibernate.engine.spi.ExecutableList@10876a6 updates=org.hibernate.engine.spi.ExecutableList@71870da7 deletions=org.hibernate.engine.spi.ExecutableList@6dd91637 orphanRemovals=org.hibernate.engine.spi.ExecutableList@45792847 collectionCreations=org.hibernate.engine.spi.ExecutableList@706cb08 collectionRemovals=org.hibernate.engine.spi.ExecutableList@4e25147a collectionUpdates=org.hibernate.engine.spi.ExecutableList@6b68cb27 collectionQueuedOps=org.hibernate.engine.spi.ExecutableList@675ffd1d unresolvedInsertDependencies=UnresolvedEntityInsertActions[]])] after transaction
+DEBUG main org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Releasing JDBC connection
+DEBUG main com.mchange.v2.async.ThreadPoolAsynchronousRunner - com.mchange.v2.async.ThreadPoolAsynchronousRunner@395b56bb: Adding task to queue -- com.mchange.v2.resourcepool.BasicResourcePool$1RefurbishCheckinResourceTask@7048535f
+DEBUG main com.mchange.v2.resourcepool.BasicResourcePool - trace com.mchange.v2.resourcepool.BasicResourcePool@315f43d5 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@6d1cd73)
+DEBUG main org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Released JDBC connection
+DEBUG main org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - After test method: context [DefaultTestContext@4566e5bd testClass = testWhlistDao, testInstance = Test.Dao.testWhlistDao@5025a98f, testMethod = testDao4@testWhlistDao, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@1ed4004b testClass = testWhlistDao, locations = '{classpath:beans.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+DEBUG main org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - After test class: context [DefaultTestContext@4566e5bd testClass = testWhlistDao, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@1ed4004b testClass = testWhlistDao, locations = '{classpath:beans.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+INFO Thread-5 org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@eec5a4a: startup date [Sat Jan 06 13:18:27 CST 2018]; root of context hierarchy
+DEBUG Thread-5 org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'lifecycleProcessor'
+DEBUG Thread-5 org.springframework.beans.factory.support.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5be6e01c: defining beans [date,dataSource,sessionFactory,transactionManager,prop,org.springframework.transaction.config.internalTransactionalEventListenerFactory,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,advice,pointcut,org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.context.event.internalEventListenerProcessor,org.springframework.context.event.internalEventListenerFactory,baseAction,menuAction,ordersAction,providerAction,stockAction,userAction,warehouseAction,whlistAction,baseService,goodsService,menuService,ordersService,providerService,stockService,userService,warehouseService,whlistService,baseDao,goodsDao,MenuDao,ordersDao,providerDao,stockDao,userDao,warehouseDao,whlistDao,fileUpload,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor]; root of factory hierarchy
+DEBUG Thread-5 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'whlistDao': [Test.Dao.testWhlistDao]
+DEBUG Thread-5 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean '(inner bean)#3e134896': [advice]
+DEBUG Thread-5 org.springframework.beans.factory.support.DisposableBeanAdapter - Invoking destroy() on bean with name 'sessionFactory'
+DEBUG Thread-5 org.hibernate.internal.SessionFactoryImpl - HHH000031: Closing
+DEBUG Thread-5 org.hibernate.boot.registry.internal.BootstrapServiceRegistryImpl - Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+DEBUG Thread-5 org.hibernate.service.internal.AbstractServiceRegistryImpl - Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
